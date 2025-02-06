@@ -1,8 +1,8 @@
 # ===================================
 # [Your Program Title]
 # ===================================
-# Developed by. [Enter your name]
-# JCDS - [Class Batch]
+# Developed by. MOH. KHISANUL FAKHRUDIN AKBAR
+# JCDS - [JCDS0512]
 
 
 # /************************************/
