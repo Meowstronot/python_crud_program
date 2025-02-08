@@ -9,7 +9,25 @@
 
 # /===== Data Model =====/
 # Create your data model here
-data = [] # Example data model
+
+# list of dictionary
+database = [
+                {"Index": 0,
+                 "Nama": "Apel",
+                 "Stock": 20,
+                 "Harga": 10_000},
+
+                {"Index": 1,
+                 "Nama": "Jeruk",
+                 "Stock": 15,
+                 "Harga": 15_000},
+
+                {"Index": 2,
+                 "Nama": "Anggur",
+                 "Stock": 25,
+                 "Harga": 20_000},
+
+              ]
 
 
 # /===== Feature Program =====/
