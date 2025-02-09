@@ -14,9 +14,9 @@ database = [
                  "catatan":""},
 
                {
-                  "nomor_hp": "081382838528",
+                  "nomor_hp": "08138528",
                   "email": "example1@gmail.com",
-                  "nama": "Person One",
+                  "nama": "Joko",
                   "jenis_kelamin": "Laki-laki",
                   "tgl_lahir": dt.date(2001, 12, 1),
                   "usia": None,
@@ -25,9 +25,9 @@ database = [
                   "catatan": "Catatan 1",
                },
                {
-                  "nomor_hp": "081382838529",
+                  "nomor_hp": "08138529",
                   "email": "example2@gmail.com",
-                  "nama": "Person Two",
+                  "nama": "owi",
                   "jenis_kelamin": "Perempuan",
                   "tgl_lahir": dt.date(2003, 5, 23),
                   "usia": None,
@@ -36,9 +36,9 @@ database = [
                   "catatan": "Catatan 2",
                },
                {
-                  "nomor_hp": "081382838530",
+                  "nomor_hp": "08148530",
                   "email": "example3@gmail.com",
-                  "nama": "Person Three",
+                  "nama": "fufu",
                   "jenis_kelamin": "Laki-laki",
                   "tgl_lahir": dt.date(1999, 8, 15),
                   "usia": None,
@@ -47,9 +47,9 @@ database = [
                   "catatan": "Catatan 3",
                },
                {
-                  "nomor_hp": "081382838531",
+                  "nomor_hp": "08148531",
                   "email": "example4@gmail.com",
-                  "nama": "Person Four",
+                  "nama": "fafa",
                   "jenis_kelamin": "Perempuan",
                   "tgl_lahir": dt.date(1998, 5, 30),
                   "usia": None,
@@ -108,7 +108,7 @@ def sort_usia():
 
             ask_save = (input("Apakah anda ingin menyimpan perubahan? (y/n) :")).lower()
             if ask_save == "y":
-               
+
                global database # error kalo tidak make ini, untuk modify data diluar function harus make global
                if database_sorted != None:
                   database = database_sorted.copy() # menyimpan sorted data ke dalam database
@@ -158,19 +158,21 @@ def sort_usia():
           print("Masukan nilai 1-3")
    
 
-def filter_tgl_lahir():
-   """Filter Database berdasarkan tahin atau bulan kelahiran
+def filter_database():
+   """Filter Database berdasarkan nomor hp, nama, tahun atau bulan kelahiran
       \nHasil Filter tidak akan disimpan
    """
    option = None
    filtered_database = None
 
-   while option != 3:
+   while option != 5:
 
       print("")
-      print("1. Filter berdasarkan tahun lahir")
-      print("2. Filter berdasarkan bulan lahir")
-      print("3. Kembali ke menu utama")
+      print("1. Cari Kontak berdasarkan nomor HP")
+      print("2. Cari Kontak berdasarkan nama")
+      print("3. Cari Kontak berdasarkan tahun lahir")
+      print("4. Cari Kontak berdasarkan bulan lahir")
+      print("5. Kembali ke menu utama")
       print("")
 
       # mencegah user memasukan input selain integer
@@ -181,8 +183,40 @@ def filter_tgl_lahir():
                break
          except:
                print("Silahkan masukan angka!")
-      
+
       if option == 1:
+         # filter berdasarkan string nomor hp
+         show_database()
+
+         input_no = input("Silahkan masukan nomor HP untuk filter: ")
+         filtered_database = [item for item in database if input_no in item["nomor_hp"]]
+
+         if filtered_database != []:
+            print("Hasil Filter: ")
+            print(tabulate(filtered_database, headers="keys", tablefmt="pipe"))
+            print("Filter Sukses!")
+         else:
+            print("")
+            print("Hasil Filter Kosong!")
+            print("")
+
+      elif option == 2:
+         # filter berdasarkan string nama
+         show_database()
+
+         input_nama = input("Silahkan masukan nomor HP untuk filter: ")
+         filtered_database = [item for item in database if input_nama.lower() in item["nama"].lower()]
+
+         if filtered_database != []:
+            print("Hasil Filter: ")
+            print(tabulate(filtered_database, headers="keys", tablefmt="pipe"))
+            print("Filter Sukses!")
+         else:
+            print("")
+            print("Hasil Filter Kosong!")
+            print("")
+
+      elif option == 3:
          show_database()
 
          # mencegah user memasukan input selain integer
@@ -206,7 +240,7 @@ def filter_tgl_lahir():
             print("Hasil Filter Kosong!")
             print("")
 
-      elif option == 2:
+      elif option == 4:
          show_database()
 
          # mencegah user memasukan input selain integer
@@ -233,11 +267,14 @@ def filter_tgl_lahir():
             print("")
             print("Hasil Filter Kosong!")
             print("")
+      elif option == 5:
+          pass
+      else:
+          print("Input is not valid !")
 
-
-show_database()
-sort_usia()
-# filter_tgl_lahir()
+# show_database()
+# # sort_usia()
+# filter_database()
 
 # show_database()
 # sort_usia()
