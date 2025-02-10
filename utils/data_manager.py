@@ -7,88 +7,70 @@ database = [
                  "email": "shinaruikhisan@gmail.com",
                  "nama": "MOH. KHISANUL FAKHRUDIN AKBAR",
                  "jenis_kelamin": "Laki-laki",
-                 "tgl_lahir":dt.date(2001,2,14),
-                 "usia": None,
-                 "alamat":"Gresik",
-                 "pekerjaan":"info loker",
-                 "catatan":""},
+                 "provinsi":"Jawa Timur",
+                 "kota": "Gresik",
+                 "alamat":"RT 4 RW 3 GOLOKAN SIDAYU",
+                 "kategori":"Teman Kuliah",
+                 "catatan":"",
+                 "last_update": None},
 
-               {
-                  "nomor_hp": "08138528",
-                  "email": "example1@gmail.com",
-                  "nama": "Joko",
-                  "jenis_kelamin": "Laki-laki",
-                  "tgl_lahir": dt.date(2001, 12, 1),
-                  "usia": None,
-                  "alamat": "Surabaya",
-                  "pekerjaan": "admin",
-                  "catatan": "Catatan 1",
-               },
-               {
-                  "nomor_hp": "08138529",
-                  "email": "example2@gmail.com",
-                  "nama": "owi",
-                  "jenis_kelamin": "Perempuan",
-                  "tgl_lahir": dt.date(2003, 5, 23),
-                  "usia": None,
-                  "alamat": "Malang",
-                  "pekerjaan": "IT support",
-                  "catatan": "Catatan 2",
-               },
-               {
-                  "nomor_hp": "08148530",
-                  "email": "example3@gmail.com",
-                  "nama": "fufu",
-                  "jenis_kelamin": "Laki-laki",
-                  "tgl_lahir": dt.date(1999, 8, 15),
-                  "usia": None,
-                  "alamat": "Jakarta",
-                  "pekerjaan": "freelancer",
-                  "catatan": "Catatan 3",
-               },
-               {
-                  "nomor_hp": "08148531",
-                  "email": "example4@gmail.com",
-                  "nama": "fafa",
-                  "jenis_kelamin": "Perempuan",
-                  "tgl_lahir": dt.date(1998, 5, 30),
-                  "usia": None,
-                  "alamat": "Bandung",
-                  "pekerjaan": "teacher",
-                  "catatan": "Catatan 4"
-               }
+                 {"nomor_hp": "081234567890", 
+                  "email": "aisyahrahmawati@gmail.com", 
+                  "nama": "Aisyah Rahmawati", 
+                  "jenis_kelamin": "Perempuan", 
+                  "provinsi": "Jawa Barat", 
+                  "kota": "Bandung", 
+                  "alamat": "Jl. Sukajadi No. 12", 
+                  "kategori": "Teman SMA", 
+                  "catatan": "", 
+                  "last_update": None},
+
+                  {"nomor_hp": "082345678901", 
+                   "email": "muhammadfauzi23@gmail.com", 
+                   "nama": "Muhammad Fauzi", 
+                   "jenis_kelamin": "Laki-laki",
+                   "provinsi": "Jawa Tengah", 
+                   "kota": "Semarang", 
+                   "alamat": "Jl. Pemuda No. 45", 
+                   "kategori": "Teman Kerja", 
+                   "catatan": "", 
+                   "last_update": None},
+
+                   {"nomor_hp": "083456789012", 
+                    "email": "siti-fatimah27@gmail.com", 
+                    "nama": "Siti Fatimah", 
+                    "jenis_kelamin": "Perempuan", 
+                    "provinsi": "Jawa Timur", 
+                    "kota": "Surabaya", 
+                    "alamat": "Jl. Raya Darmo No. 123", 
+                    "kategori": "Teman Kuliah", 
+                    "catatan": "", 
+                    "last_update": None}
+
               ]
 
 def show_database():
    """function untuk menampilkan Database Yellow Pages
    """
-   for item in database:
-
-      # auto mengisi kolom usia
-      tgl_lahir = item["tgl_lahir"]
-      tgl_sekarang = dt.date.today()
-      usia = tgl_sekarang.year - tgl_lahir.year - ((tgl_sekarang.month, tgl_sekarang.day) < (tgl_lahir.month, tgl_lahir.day))
-      item["usia"] = usia
-
-   # merubah format tgl lahir
    copy_database = deepcopy(database) # memerlukan deepcopy karena dictionary pada list dictionary masih nyangkut/ikut keubah jika hanya menggunakan copy()
    for data in copy_database:
-       data["tgl_lahir"] = data["tgl_lahir"].strftime("%d-%m-%Y")
+       if data["last_update"] != None:
+         data["last_update"] = data["last_update"].strftime("%H:%M %d-%m-%Y")
 
    print("")
    print(tabulate(copy_database, headers="keys", tablefmt="pipe"))
    print("")
 
-def sort_usia():
-   """mengurutkan usia data berdasarkan data tanggal lahir database
+def sort_nama():
+   """mengurutkan data berdasarkan nama
    """
    option = None
    database_sorted = None
 
    while option != 3:
       
-      print("1. Urutkan usia dari paling muda")
-      print("2. Urutkan usia dari paling tua")
+      print("1. Urutkan nama dari A-Z")
+      print("2. Urutkan nama dari Z-A")
       print("3. Kembali ke menu utama")
       print("")
 
@@ -120,59 +102,43 @@ def sort_usia():
                break
 
       elif option == 1:
-         print("Mengurutkan usia dari paling muda ke paling tua: ")
-
-         # mengurutkan tanpa mengubah data asli ### opsi 1
-         database_sorted = sorted(database, key=lambda list_dict: list_dict["tgl_lahir"], reverse=True)
+         print("Mengurutkan nama dari A-z:")
+         
+         database_sorted = sorted(database, key=lambda list_dict: list_dict["nama"])
          print("")
          print(tabulate(database_sorted, headers="keys", tablefmt="pipe"))
-         print("Sukses mengurutkan usia dari paling muda ke paling tua!")
+         print("Sukses mengurutkan nama dari A-z")
          print("")
-
-         # # mengurutkan langsung di data asli ### opsi 2
-         # database.sort(key=lambda list_dict: list_dict["tgl_lahir"],reverse=True)
-         # print("")
-         # show_database()
-         # print("Sukses mengurutkan usia dari paling muda ke paling tua!")
-         # print("")
          
       elif option == 2:
-         print("mengurutkan usia dari paling tua ke paling muda")
-         
-         # mengurutkan tanpa mengubah data asli ### opsi 1
-         database_sorted = sorted(database, key=lambda list_dict: list_dict["tgl_lahir"])
+         print("Mengurutkan nama dari Z-A: ")
+
+         database_sorted = sorted(database, key=lambda list_dict: list_dict["nama"], reverse=True)
          print("")
          print(tabulate(database_sorted, headers="keys", tablefmt="pipe"))
-         print("Sukses mengurutkan usia dari paling tua ke paling muda!")
+         print("Sukses mengurutkan nama dari Z-A!")
          print("")
-
-         # # mengurutkan langsung di data asli ### opsi 2
-         # database.sort(key=lambda list_dict: list_dict["tgl_lahir"])
-         # print("")
-         # show_database()
-         # print("Sukses mengurutkan usia dari paling tua ke paling muda!")
-         # print("")
-
+         
       else:
           # jika user memasukan pilihan diluar rentang pilihan
           print("Masukan nilai 1-3")
    
 
 def filter_database():
-   """Filter Database berdasarkan nomor hp, nama, tahun atau bulan kelahiran
-      \nHasil Filter tidak akan disimpan
+   """Filter Database berdasarkan menu pilihan
    """
    option = None
    filtered_database = None
 
-   while option != 5:
+   while option != 6:
 
       print("")
       print("1. Cari Kontak berdasarkan nomor HP")
       print("2. Cari Kontak berdasarkan nama")
-      print("3. Cari Kontak berdasarkan tahun lahir")
-      print("4. Cari Kontak berdasarkan bulan lahir")
-      print("5. Kembali ke menu utama")
+      print("3. Cari Kontak berdasarkan kategori")
+      print("4. Cari Kontak berdasarkan provinsi")
+      print("5. Cari Kontak berdasarkan kota")
+      print("6. Kembali ke menu utama")
       print("")
 
       # mencegah user memasukan input selain integer
@@ -217,65 +183,76 @@ def filter_database():
             print("")
 
       elif option == 3:
+         # filter berdasarkan kategori
          show_database()
 
+         print("Kategori Kontak :")
+         print("1. Keluarga")
+         print("2. Teman Kerja")
+         print("3. Teman Kuliah")
+         print("4. Teman SMA")
+         print("5. Teman SMP")
+         print("6. Teman SD")
+         print("7. Teman Main")
+         print("")
+         list_kategori = ["Keluarga","Teman Kerja","Teman Kuliah","Teman SMA","Teman SMP","Teman SD","Teman Main"]
          # mencegah user memasukan input selain integer
          while True:
-            tahun = input("Masukan tahun lahir untuk filter: ")
+            kategori = input("Silahkan pilih kategori untuk filter : ")
             try:
-                  tahun = int(tahun)
-                  break
+                  kategori = int(kategori)
+                  if kategori in range(1,8):
+                     break
+                  else:
+                      print("Silahkan masukan angka 1-7")
+                      continue
             except:
-                  print("Silahkan masukan angka!")
-
-         filtered_database = [item for item in database if item["tgl_lahir"].year == tahun]
-
+                  print("Silahkan masukan angka 1-7")
+            
+         filtered_database = [item for item in database if list_kategori[kategori-1].lower() in item["kategori"].lower()]
          if filtered_database != []:
             print("Hasil Filter: ")
             print(tabulate(filtered_database, headers="keys", tablefmt="pipe"))
             print("Filter Sukses!")
-            
          else:
             print("")
             print("Hasil Filter Kosong!")
             print("")
 
       elif option == 4:
+         # filter berdasarkan string provinsi
          show_database()
 
-         # mencegah user memasukan input selain integer
-         while True:
-            bulan = input("Masukan bulan lahir (1-12) untuk filter: ")
-            try:
-                  bulan = int(bulan)
-                  if bulan in range(1,13):
-                     break
-                  else:
-                      print("Silahkan masukan angka 1-12")
-                      continue
-            except:
-                  print("Silahkan masukan angka!")
-
-         filtered_database = [item for item in database if item["tgl_lahir"].month == bulan]
+         provinsi = input("Silahkan masukan provinsi untuk filter: ")
+         filtered_database = [item for item in database if provinsi.lower() in item["provinsi"].lower()]
 
          if filtered_database != []:
             print("Hasil Filter: ")
             print(tabulate(filtered_database, headers="keys", tablefmt="pipe"))
             print("Filter Sukses!")
-            
          else:
             print("")
             print("Hasil Filter Kosong!")
             print("")
+
       elif option == 5:
+         # filter berdasarkan string kota
+         show_database()
+
+         kota = input("Silahkan masukan kota untuk filter: ")
+         filtered_database = [item for item in database if kota.lower() in item["kota"].lower()]
+
+         if filtered_database != []:
+            print("Hasil Filter: ")
+            print(tabulate(filtered_database, headers="keys", tablefmt="pipe"))
+            print("Filter Sukses!")
+         else:
+            print("")
+            print("Hasil Filter Kosong!")
+            print("")
+
+      elif option == 6:
           pass
       else:
           print("Input is not valid !")
 
-# show_database()
-# # sort_usia()
-# filter_database()
-
-# show_database()
-# sort_usia()
-# show_database()

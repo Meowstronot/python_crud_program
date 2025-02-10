@@ -51,7 +51,7 @@ def main():
 █▄▄ █▄█ █░▀█ ░█░ █▀█ █▄▄ ░█░   █░▀░█ █▀█ █░▀█ █▀█ █▄█ ██▄ █▀▄   █▀▀ █▀▄ █▄█ █▄█ █▀▄ █▀█ █░▀░█""")
         print("")
         print("List Menu :")
-        print("1. Tampilkan Seluruh Data Kontak")
+        print("1. Tampilkan Data Kontak")
         print("2. Pencarian Data Kontak")
         print("3. Menambahkan Data Kontak")
         print("4. Update Data kontak")
@@ -63,7 +63,7 @@ def main():
 
         if input_user == "1":
             show_database()
-            sort_usia()
+            sort_nama()
         elif input_user == "2":
             show_database()
             filter_database()
@@ -74,7 +74,10 @@ def main():
 
         #elif input_user == "5":
 
-        #elif input_user == "6":
+        elif input_user == "6":
+            print("")
+            print("Good bye!")
+            print("")
             
         else:
             print("Input is not valid !")
