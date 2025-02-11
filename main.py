@@ -12,6 +12,8 @@ from tabulate import tabulate
 import datetime as dt
 from utils.data_manager import *  # import seluruh code from data_manager.py
 from utils.add_data import *
+from utils.update_data import *
+from utils.delete_and_recycle_bin import *
 
 # /===== Data Model =====/
 # Data model yang digunakan adalah list of dictionary yang tersimpan pada file data_manager.py
@@ -47,8 +49,10 @@ def main():
     while input_user != "6":
 
         
-        print("""█▀▀ █▀█ █▄░█ ▀█▀ ▄▀█ █▀▀ ▀█▀   █▀▄▀█ ▄▀█ █▄░█ ▄▀█ █▀▀ █▀▀ █▀█   █▀█ █▀█ █▀█ █▀▀ █▀█ ▄▀█ █▀▄▀█
-█▄▄ █▄█ █░▀█ ░█░ █▀█ █▄▄ ░█░   █░▀░█ █▀█ █░▀█ █▀█ █▄█ ██▄ █▀▄   █▀▀ █▀▄ █▄█ █▄█ █▀▄ █▀█ █░▀░█""")
+        print("""
+░█──░█ ░█▀▀▀ ░█─── ░█─── ░█▀▀▀█ ░█──░█ 　 ░█▀▀█ ─█▀▀█ ░█▀▀█ ░█▀▀▀ ░█▀▀▀█ 　 █▀▀█ █▀▀█ █▀▀█ █▀▀▀ █▀▀█ █▀▀█ █▀▄▀█ 
+░█▄▄▄█ ░█▀▀▀ ░█─── ░█─── ░█──░█ ░█░█░█ 　 ░█▄▄█ ░█▄▄█ ░█─▄▄ ░█▀▀▀ ─▀▀▀▄▄ 　 █──█ █▄▄▀ █──█ █─▀█ █▄▄▀ █▄▄█ █─▀─█ 
+──░█── ░█▄▄▄ ░█▄▄█ ░█▄▄█ ░█▄▄▄█ ░█▄▀▄█ 　 ░█─── ░█─░█ ░█▄▄█ ░█▄▄▄ ░█▄▄▄█ 　 █▀▀▀ ▀─▀▀ ▀▀▀▀ ▀▀▀▀ ▀─▀▀ ▀──▀ ▀───▀""")
         print("")
         print("List Menu :")
         print("1. Tampilkan Data Kontak")
@@ -70,9 +74,12 @@ def main():
         elif input_user == "3":
             show_database()
             add_data()
-        #elif input_user == "4":
-
-        #elif input_user == "5":
+        elif input_user == "4":
+            show_database()
+            update_data()
+        elif input_user == "5":
+            show_database()
+            delete_data()
 
         elif input_user == "6":
             print("")

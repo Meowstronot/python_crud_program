@@ -52,13 +52,13 @@ database = [
 def show_database():
    """function untuk menampilkan Database Yellow Pages
    """
-   copy_database = deepcopy(database) # memerlukan deepcopy karena dictionary pada list dictionary masih nyangkut/ikut keubah jika hanya menggunakan copy()
-   for data in copy_database:
-       if data["last_update"] != None:
-         data["last_update"] = data["last_update"].strftime("%H:%M %d-%m-%Y")
+   # copy_database = deepcopy(database) # memerlukan deepcopy karena dictionary pada list dictionary masih nyangkut/ikut keubah jika hanya menggunakan copy()
+   # for data in copy_database:
+   #     if data["last_update"] != None:
+   #       data["last_update"] = data["last_update"].strftime("%H:%M %d-%m-%Y")
 
    print("")
-   print(tabulate(copy_database, headers="keys", tablefmt="pipe"))
+   print(tabulate(database, headers="keys", tablefmt="pipe"))
    print("")
 
 def sort_nama():

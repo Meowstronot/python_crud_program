@@ -18,8 +18,13 @@ def add_data():
         else:
             print("Nomor HP tidak valid!")
 
-    email = input("Silahkan masukan email: ")
-
+    while True:
+        email = input("Silahkan masukan email: ")
+        if email == "":
+            print("Email masih kosong")
+        else:
+            break
+    
     while True:
         nama = input("Silahkan masukan nama: ")
         if nama == "" or nama[0].isdigit() :
@@ -90,7 +95,7 @@ def add_data():
 
 
     catatan = input("Tambahkan catatan pada kontak(optional): ")
-    last_update = dt.datetime.now()
+    last_update = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     inputed_data = {"nomor_hp": nomor_hp,
                     "email": email,
