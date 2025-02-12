@@ -18,36 +18,13 @@ from utils.delete_and_recycle_bin import *
 # /===== Data Model =====/
 # Data model yang digunakan adalah list of dictionary yang tersimpan pada file data_manager.py
 
-# # /===== Feature Program =====/
-# # Create your feature program here
-# def read():
-#     """Function for read the data
-#     """
-#     return
-
-# def create():
-#     """Function for create the data
-#     """
-#     return
-
-# def update():
-#     """Function for update the data
-#     """
-#     return
-
-# def delete():
-#     """Function for delete the data
-#     """
-#     return
-
 # /===== Main Program =====/
 def main():
     """Function for main program
     """
     input_user = None
 
-    while input_user != "6":
-
+    while input_user != "7":
         
         print("""
 ░█──░█ ░█▀▀▀ ░█─── ░█─── ░█▀▀▀█ ░█──░█ 　 ░█▀▀█ ─█▀▀█ ░█▀▀█ ░█▀▀▀ ░█▀▀▀█ 　 █▀▀█ █▀▀█ █▀▀█ █▀▀▀ █▀▀█ █▀▀█ █▀▄▀█ 
@@ -60,7 +37,8 @@ def main():
         print("3. Menambahkan Data Kontak")
         print("4. Update Data kontak")
         print("5. Hapus Data Kontak")
-        print("6. Exit Program")
+        print("6. Recycle Bin")
+        print("7. Exit Program")
         print("")
 
         input_user = input("Silahkan pilih menu yang ingin dijalankan: ")
@@ -80,15 +58,15 @@ def main():
         elif input_user == "5":
             show_database()
             delete_data()
-
         elif input_user == "6":
+            recycle_bin_menu()
+        elif input_user == "7":
             print("")
             print("Good bye!")
             print("")
             
         else:
             print("Input is not valid !")
-
 
 if __name__ == "__main__":
     main()
