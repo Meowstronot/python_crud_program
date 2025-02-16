@@ -71,17 +71,23 @@ The target user of the Yellow Pages application is individuals who need to manag
 We welcome contributions to this project! Please feel free to open a pull request, sent to shinaruikhisan@gmail.com or submit an issue if you encounter any problems or have suggestions for improvements.
 
 ## Program Flow
-Main Menu
+* Main Menu
 <img src="./Program Flow (Main Menu).svg">
-Option 1
+
+* Option 1
 <img src="./Option 1.svg">
-Option 2
+
+* Option 2
 <img src="./Option 2.svg">
-Option 3
+
+* Option 3
 <img src="./Option 3.svg">
-Option 4
+
+* Option 4
 <img src="./Option 4.svg">
-Option 5
+
+* Option 5
 <img src="./Option 5.svg">
-Option 6
+
+* Option 6
 <img src="./Option 6.svg">
