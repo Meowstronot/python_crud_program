@@ -37,16 +37,16 @@ def update_data():
                     
                     #----------------------------------------- EDIT DATA
                     show_filtered_database(nomor_hp)
-                    print("1. Nomor HP")
-                    print("2. Email")
-                    print("3. Nama")
-                    print("4. Jenis Kelamin")
-                    print("5. Provinsi")
-                    print("6. Kota")
-                    print("7. Alamat")
-                    print("8. Kategoti")
-                    print("9. Catatan")
-                    print("10. Cancel")
+                    #print("1. Nomor HP")
+                    print("1. Email")
+                    print("2. Nama")
+                    print("3. Jenis Kelamin")
+                    print("4. Provinsi")
+                    print("5. Kota")
+                    print("6. Alamat")
+                    print("7. Kategoti")
+                    print("8. Catatan")
+                    print("9. Cancel")
                     # validasi input
                     while True:
                         option = input("Silahkan pilih kolom yang ingin di update: ")
@@ -60,17 +60,17 @@ def update_data():
                         except:
                             print("Silahkan masukan angka 1-10")
                     
-                    if option == 1:
-                        while True:
-                            nomor_hp = input("Silahkan masukan nomor HP: ")
-                            if nomor_hp.isdigit() and (len(nomor_hp) == 12 or len(nomor_hp)== 13) :
-                                #print("aman")
-                                break
-                            else:
-                                print("Nomor HP tidak valid!")
-                        database[i]["nomor_hp"] = nomor_hp
+                    # if option == 1:
+                    #     while True:
+                    #         nomor_hp = input("Silahkan masukan nomor HP: ")
+                    #         if nomor_hp.isdigit() and (len(nomor_hp) == 12 or len(nomor_hp)== 13) :
+                    #             #print("aman")
+                    #             break
+                    #         else:
+                    #             print("Nomor HP tidak valid!")
+                    #     database[i]["nomor_hp"] = nomor_hp
 
-                    elif option == 2:
+                    if option == 1:
                         while True:
                             email = input("Silahkan masukan email: ")
                             if email == "":
@@ -79,7 +79,7 @@ def update_data():
                                 break
                         database[i]["email"] = email
                     
-                    elif option == 3:
+                    elif option == 2:
                         while True:
                             nama = input("Silahkan masukan nama: ")
                             if nama == "" or nama[0].isdigit() :
@@ -88,7 +88,7 @@ def update_data():
                                 break
                         database[i]["nama"] = nama
 
-                    elif option == 4:
+                    elif option == 3:
                         while True:
                             print("1. Laki-laki")
                             print("2. Perempuan")
@@ -105,7 +105,7 @@ def update_data():
                                 print("Input tidak valid!")
                         database[i]["jenis_kelamin"] = jenis_kelamin
 
-                    elif option == 5:
+                    elif option == 4:
                         while True:
                             provinsi = input("Silahkan masukan provinsi: ")
                             if provinsi == "":
@@ -114,7 +114,7 @@ def update_data():
                                 break
                         database[i]["provinsi"] = provinsi
 
-                    elif option == 6:
+                    elif option == 5:
                         while True:
                             kota = input("Silahkan masukan kota: ")
                             if kota == "":
@@ -123,12 +123,12 @@ def update_data():
                                 break
                         database[i]["kota"] = kota
 
-                    elif option == 7:
+                    elif option == 6:
 
                         alamat = input("Silahkan masukan alamat: ")
                         database[i]["alamat"] = alamat
 
-                    elif option == 8:
+                    elif option == 7:
                         while True:
                             
                             print("Kategori Kontak :")
@@ -156,12 +156,12 @@ def update_data():
 
                         database[i]["kategori"] = kategori
 
-                    elif option == 9:
+                    elif option == 8:
 
                         catatan = input("Silahkan masukan catatan: ")
                         database[i]["catatan"] = catatan
                     
-                    elif option == 10:
+                    elif option == 9:
                         print("Update Data Canceled!")
                         return
 
